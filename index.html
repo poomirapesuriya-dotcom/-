@@ -3,237 +3,1055 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nocturne Black Cat Café</title>
 
-<link href="https://googleapis.com" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+   RESET
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    background:#0a0a0a;
-    color:white;
-    font-family:'Poppins',sans-serif;
+html{
+    scroll-behavior:smooth;
 }
 
+body{
+    background:#080808;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    line-height:1.6;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 8%;
+
+    background:rgba(0,0,0,0.55);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(212,175,55,0.15);
+}
+
+.nav-logo{
+    font-family:'Cinzel',serif;
+    font-size:1.4rem;
+    letter-spacing:3px;
+    color:#d4af37;
+}
+
+.navbar a{
+    color:#ddd;
+    text-decoration:none;
+    margin-left:30px;
+    font-size:0.9rem;
+    transition:0.3s;
+}
+
+.navbar a:hover{
+    color:#d4af37;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
 header{
-    height:100vh;
+    min-height:100vh;
+
     background:
-    linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.75)),
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.85)
+    ),
     url('cat-cafe.jpg');
+
     background-size:cover;
     background-position:center;
+
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
+    position:relative;
+}
+
+.hero-content{
+    padding:20px;
+    max-width:900px;
+
+    animation:fadeUp 1.5s ease;
 }
 
 .logo{
     font-family:'Cinzel',serif;
-    font-size:4rem;
+
+    font-size:clamp(3rem,8vw,7rem);
+
     color:#d4af37;
-    letter-spacing:3px;
+
+    letter-spacing:8px;
+
+    text-shadow:
+        0 0 20px rgba(212,175,55,0.25);
+}
+
+.hero-subtitle{
+    margin-top:10px;
+
+    font-family:'Cinzel',serif;
+
+    font-size:1.2rem;
+
+    color:#d4af37;
+
+    letter-spacing:5px;
 }
 
 .tagline{
-    margin-top:20px;
-    font-size:1.2rem;
+    margin:25px auto 0;
+
+    font-size:1.05rem;
+
     color:#ddd;
+
     max-width:700px;
 }
 
+
+/* =========================
+   BUTTON
+========================= */
+
 .btn{
+    display:inline-block;
+
     margin-top:35px;
-    padding:15px 35px;
-    border:2px solid #d4af37;
+
+    padding:14px 35px;
+
+    border:1px solid #d4af37;
+
+    border-radius:50px;
+
     color:#d4af37;
+
     text-decoration:none;
-    border-radius:40px;
+
     transition:0.4s;
+
+    letter-spacing:1px;
 }
 
 .btn:hover{
     background:#d4af37;
-    color:black;
+
+    color:#050505;
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,0.35);
+
+    transform:translateY(-3px);
 }
 
+
+/* =========================
+   SECTIONS
+========================= */
+
 section{
-    padding:100px 10%;
+    padding:110px 10%;
 }
 
 .section-title{
     text-align:center;
-    font-size:2.5rem;
-    color:#d4af37;
-    margin-bottom:50px;
+
     font-family:'Cinzel',serif;
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    color:#d4af37;
+
+    margin-bottom:60px;
+
+    letter-spacing:2px;
 }
+
+.section-title::after{
+    content:"";
+
+    display:block;
+
+    width:60px;
+    height:2px;
+
+    background:#d4af37;
+
+    margin:18px auto 0;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
 
 .about{
     display:grid;
+
     grid-template-columns:1fr 1fr;
-    gap:50px;
+
+    gap:60px;
+
     align-items:center;
+
+    max-width:1200px;
+
+    margin:auto;
 }
 
 .about img{
     width:100%;
+
+    display:block;
+
     border-radius:20px;
-    box-shadow:0 0 30px rgba(212,175,55,0.2);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6),
+        0 0 30px rgba(212,175,55,0.12);
+
+    transition:0.5s;
+}
+
+.about img:hover{
+    transform:scale(1.02);
 }
 
 .about-text{
-    line-height:1.8;
-    color:#ddd;
+    color:#ccc;
+
+    font-size:1rem;
+
+    line-height:2;
+}
+
+.about-text strong{
+    color:#d4af37;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+#menu{
+    background:
+        linear-gradient(
+            rgba(15,15,15,0.95),
+            rgba(8,8,8,1)
+        );
 }
 
 .menu-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(230px,1fr));
+
+    gap:25px;
+
+    max-width:1200px;
+
+    margin:auto;
 }
 
 .card{
-    background:#111;
-    border:1px solid #333;
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
+
+    border:1px solid #292929;
+
     border-radius:20px;
-    padding:30px;
+
+    padding:35px 25px;
+
     text-align:center;
+
+    transition:0.4s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:2px;
+
+    background:#d4af37;
+
+    transform:scaleX(0);
+
     transition:0.4s;
 }
 
 .card:hover{
     transform:translateY(-10px);
+
     border-color:#d4af37;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.5);
+}
+
+.card:hover::before{
+    transform:scaleX(1);
+}
+
+.card-icon{
+    font-size:2rem;
+
+    margin-bottom:15px;
 }
 
 .card h3{
     color:#d4af37;
-    margin-bottom:15px;
+
+    font-family:'Cinzel',serif;
+
+    margin-bottom:12px;
+
+    font-size:1.25rem;
 }
+
+.card p{
+    color:#aaa;
+
+    font-size:0.9rem;
+}
+
+
+/* =========================
+   GALLERY
+========================= */
 
 .gallery{
+    max-width:1200px;
+
+    margin:auto;
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:20px;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
 }
 
-.gallery img{
-    width:100%;
-    border-radius:15px;
+.gallery-item{
+    overflow:hidden;
+
+    border-radius:18px;
+
+    border:1px solid #252525;
+
+    background:#111;
 }
+
+.gallery-item img,
+.gallery-item video{
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:0.5s;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video{
+    transform:scale(1.05);
+}
+
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience{
+    background:#0d0d0d;
+
+    text-align:center;
+}
+
+.experience-text{
+    max-width:750px;
+
+    margin:auto;
+
+    color:#aaa;
+
+    line-height:2;
+
+    font-size:1rem;
+}
+
+.experience-box{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:25px;
+
+    max-width:1000px;
+
+    margin:60px auto 0;
+}
+
+.experience-item{
+    padding:30px 20px;
+
+    border:1px solid #262626;
+
+    border-radius:18px;
+
+    background:#111;
+}
+
+.experience-item span{
+    display:block;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+}
+
+.experience-item h3{
+    color:#d4af37;
+
+    font-family:'Cinzel',serif;
+
+    margin-bottom:8px;
+}
+
+.experience-item p{
+    color:#999;
+
+    font-size:0.9rem;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#050505;
+
     text-align:center;
-    padding:40px;
-    border-top:1px solid #222;
+
+    padding:60px 20px;
+
+    border-top:1px solid #202020;
+}
+
+footer h3{
+    font-family:'Cinzel',serif;
+
+    color:#d4af37;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+footer p{
+    color:#777;
+
+    font-size:0.9rem;
 }
 
 .social{
-    margin-top:15px;
+    margin-top:25px;
 }
 
 .social a{
-    color:#d4af37;
-    margin:0 10px;
+    display:inline-block;
+
+    color:#aaa;
+
     text-decoration:none;
+
+    margin:0 12px;
+
+    transition:0.3s;
 }
+
+.social a:hover{
+    color:#d4af37;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .navbar{
+        padding:18px 5%;
+    }
+
+    .nav-logo{
+        font-size:1rem;
+
+        letter-spacing:2px;
+    }
+
+    .navbar div a{
+        margin-left:10px;
+
+        font-size:0.75rem;
+    }
+
+    header{
+        background-position:center;
+    }
+
+    .logo{
+        letter-spacing:5px;
+    }
+
+    .hero-subtitle{
+        font-size:0.85rem;
+
+        letter-spacing:3px;
+    }
+
+    .tagline{
+        font-size:0.9rem;
+
+        padding:0 10px;
+    }
+
+    section{
+        padding:80px 6%;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+
+        gap:35px;
+    }
+
+    .about-text{
+        font-size:0.9rem;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-item img,
+    .gallery-item video{
+        height:280px;
+    }
+
+    .experience-box{
+        grid-template-columns:1fr;
+    }
+
+    footer{
+        padding:45px 15px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:450px){
+
+    .navbar div a{
+        display:none;
+    }
+
+    .logo{
+        font-size:2.8rem;
+    }
+
+    .hero-subtitle{
+        font-size:0.75rem;
+    }
+
+    .btn{
+        padding:13px 28px;
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
 
-<header>
-    <h1 class="logo">NOCTURNE</h1>
-    <p class="tagline">
-        Luxury Black Cat Café where elegance meets mystery.
-        Premium coffee, golden-eyed black cats, and an unforgettable atmosphere.
-    </p>
 
-    <a href="#menu" class="btn">Explore Menu</a>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+        NOCTURNE
+    </div>
+
+    <div>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#gallery">Gallery</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header>
+
+    <div class="hero-content">
+
+        <h1 class="logo">
+            NOCTURNE
+        </h1>
+
+        <p class="hero-subtitle">
+            BLACK CAT CAFÉ
+        </p>
+
+        <p class="tagline">
+            Luxury Black Cat Café where elegance meets mystery.
+            Premium coffee, golden-eyed black cats,
+            and an unforgettable atmosphere.
+        </p>
+
+        <a href="#menu" class="btn">
+            Explore Menu
+        </a>
+
+    </div>
+
 </header>
 
-<section>
-    <h2 class="section-title">About Us</h2>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <h2 class="section-title">
+        About Us
+    </h2>
 
     <div class="about">
-        <img src="black-cat.jpg" alt="Black Cat inside Nocturne Café">
+
+        <div>
+
+            <img
+                src="IMG_20260809_171724.jpg"
+                alt="Black Cat at Nocturne Café"
+            >
+
+        </div>
+
 
         <div class="about-text">
+
             <p>
-                Welcome to Nocturne Black Cat Café,
-                a luxury destination designed for coffee lovers
-                and cat enthusiasts.
+                Welcome to
+                <strong>Nocturne Black Cat Café</strong>,
+                a unique destination created for
+                coffee lovers and cat enthusiasts.
             </p>
 
             <br>
 
             <p>
-                Enjoy handcrafted premium coffee,
-                elegant black-marble interiors,
-                and the company of our mysterious black cats
-                with enchanting golden eyes.
+                Step into a world of dark elegance,
+                warm lighting and mysterious charm.
+                Enjoy handcrafted premium coffee
+                while spending time with our beautiful
+                black cats.
             </p>
+
+            <br>
+
+            <p>
+                At Nocturne, every cup and every moment
+                is designed to create an experience
+                that feels
+                <strong>elegant, intimate and unforgettable.</strong>
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
+
+<!-- =========================
+     MENU
+========================= -->
+
 <section id="menu">
-    <h2 class="section-title">Signature Menu</h2>
+
+    <h2 class="section-title">
+        Signature Menu
+    </h2>
+
 
     <div class="menu-grid">
 
-        <div class="card">
-            <h3>Black Cat Latte</h3>
-            <p>Rich espresso with silky milk foam.</p>
-        </div>
 
         <div class="card">
-            <h3>Midnight Mocha</h3>
-            <p>Dark chocolate blended with premium coffee.</p>
+
+            <div class="card-icon">
+                ☕
+            </div>
+
+            <h3>
+                Black Cat Latte
+            </h3>
+
+            <p>
+                Rich espresso combined with
+                silky milk foam for a smooth,
+                elegant finish.
+            </p>
+
         </div>
 
-        <div class="card">
-            <h3>Golden Eye Matcha</h3>
-            <p>Luxury ceremonial matcha with gold accents.</p>
-        </div>
 
         <div class="card">
-            <h3>Shadow Cheesecake</h3>
-            <p>Black cocoa cheesecake signature dessert.</p>
+
+            <div class="card-icon">
+                🍫
+            </div>
+
+            <h3>
+                Midnight Mocha
+            </h3>
+
+            <p>
+                Dark chocolate blended with
+                premium coffee for a deep,
+                luxurious flavor.
+            </p>
+
         </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🍵
+            </div>
+
+            <h3>
+                Golden Eye Matcha
+            </h3>
+
+            <p>
+                Premium ceremonial matcha
+                with a smooth texture and
+                refined aroma.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🍰
+            </div>
+
+            <h3>
+                Shadow Cheesecake
+            </h3>
+
+            <p>
+                Rich black cocoa cheesecake
+                created as our signature
+                dark dessert.
+            </p>
+
+        </div>
+
 
     </div>
+
 </section>
 
-<section>
-    <h2 class="section-title">Gallery</h2>
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
+
+<section class="experience">
+
+    <h2 class="section-title">
+        The Nocturne Experience
+    </h2>
+
+    <p class="experience-text">
+
+        More than just a café.
+        Nocturne is a place where premium coffee,
+        beautiful cats and sophisticated atmosphere
+        come together.
+
+    </p>
+
+
+    <div class="experience-box">
+
+
+        <div class="experience-item">
+
+            <span>☕</span>
+
+            <h3>
+                Premium Coffee
+            </h3>
+
+            <p>
+                Carefully crafted drinks
+                made for coffee lovers.
+            </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <span>🐈‍⬛</span>
+
+            <h3>
+                Black Cats
+            </h3>
+
+            <p>
+                Spend time with our
+                charming feline companions.
+            </p>
+
+        </div>
+
+
+        <div class="experience-item">
+
+            <span>✨</span>
+
+            <h3>
+                Elegant Atmosphere
+            </h3>
+
+            <p>
+                Dark luxury interiors
+                designed for memorable moments.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section id="gallery">
+
+    <h2 class="section-title">
+        Gallery
+    </h2>
+
 
     <div class="gallery">
-        <img src="gallery1.jpg" alt="Nocturne Café interior 1">
-        <img src="gallery2.jpg" alt="Nocturne Café interior 2">
-        <img src="gallery3.jpg" alt="Nocturne Café interior 3">
+
+
+        <!-- Image -->
+
+        <div class="gallery-item">
+
+            <img
+                src="cat-cafe.jpg"
+                alt="Nocturne Black Cat Café"
+            >
+
+        </div>
+
+
+        <!-- Image -->
+
+        <div class="gallery-item">
+
+            <img
+                src="IMG_20260809_171724.jpg"
+                alt="Black Cat"
+            >
+
+        </div>
+
+
+        <!-- Video -->
+
+        <div class="gallery-item">
+
+            <video
+                controls
+                playsinline
+                poster="cat-cafe.jpg"
+            >
+
+                <source
+                    src="VID_20260813_132512.mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support video.
+
+            </video>
+
+        </div>
+
+
     </div>
+
 </section>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    <h3>NOCTURNE BLACK CAT CAFÉ</h3>
-    <p>Luxury Coffee • Elegant Cats • Timeless Mystery</p>
+
+    <h3>
+        NOCTURNE BLACK CAT CAFÉ
+    </h3>
+
+    <p>
+        Luxury Coffee • Elegant Cats • Timeless Mystery
+    </p>
+
 
     <div class="social">
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
+
+        <a href="#" target="_blank">
+            Facebook
+        </a>
+
+        <a href="#" target="_blank">
+            Instagram
+        </a>
+
+        <a href="#" target="_blank">
+            TikTok
+        </a>
+
     </div>
+
+
+    <p style="margin-top:25px;font-size:0.75rem;color:#555;">
+
+        © 2026 Nocturne Black Cat Café
+        • All Rights Reserved
+
+    </p>
+
 </footer>
+
 
 </body>
 </html>
-
